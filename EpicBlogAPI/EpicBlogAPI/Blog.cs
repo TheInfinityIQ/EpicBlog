@@ -1,4 +1,4 @@
-﻿namespace EpicBlogUI
+﻿namespace EpicBlogAPI
 {
     public class Blog
     {
@@ -10,7 +10,7 @@
         {
             Title = title;
             Body = body;
-            // Configure DateTime automatically
+            Date = DateTime.Now;
         }
     }
 }
