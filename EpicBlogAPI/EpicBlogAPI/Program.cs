@@ -1,26 +1,65 @@
 using EpicBlogAPI;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-builder.Services.AddScoped<DataRepository>();
+builder.Services.AddSingleton<DataRepository>();
 
 app.MapGet("/", () => "Hello World!");
 
-app.MapGet("/blog", ([FromServices] DataRepository db) => { 
+//Get all
+app.MapGet("/blog", ([FromServices] DataRepository db) => {
+    if (db.Blogs == null)
+    { 
+        return Results.NotFound();
+    }
+    return Results.Ok(db.Blogs);
 });
 
-app.MapPost("/blog", ([FromServices] DataRepository db) => {
-    
+//Get Specific
+app.MapGet("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) => {
+    Blog? blog = db.Blogs.FirstOrDefault(blog => blog.Id == id );
+
+    if (blog == null) {
+        return Results.NotFound();
+    }
+
+    return Results.Ok(blog);
 });
 
-app.MapDelete("/blog", ([FromServices] DataRepository db) => { 
-    
+app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) => {
+    db.Blogs?.Add(blog);
+    return Results.Ok();
 });
 
-app.MapPut("/blog", ([FromServices] DataRepository db) => { 
+app.MapDelete("/blog", ([FromServices] DataRepository db, int id) => { 
+    Blog toRemove = db.Blogs.FirstOrDefault(blog => blog.Id == id);
     
+    if (toRemove == null)
+    { 
+        return Results.NotFound();
+    }
+    
+    db.Blogs.Remove(toRemove);
+
+    return Results.Ok();
+});
+
+app.MapPut("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog, int id) => { 
+    Blog toEdit = db.Blogs.FirstOrDefault(blog => blog.Id == id);
+
+    if (toEdit == null)
+    { 
+        return Results.BadRequest();
+    }
+
+    int indexOfToEdit = db.Blogs.IndexOf(blog);
+    db.Blogs[indexOfToEdit] = blog;
+
+    return Results.Ok();
+
 });
 
 
