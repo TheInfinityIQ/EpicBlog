@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpicBlogAPI", "EpicBlogAPI\EpicBlogAPI.csproj", "{AFD3A079-4564-4B12-BF47-F1B4EC356EF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFD3A079-4564-4B12-BF47-F1B4EC356EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD3A079-4564-4B12-BF47-F1B4EC356EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD3A079-4564-4B12-BF47-F1B4EC356EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD3A079-4564-4B12-BF47-F1B4EC356EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30F3623B-3D2D-43E5-9F44-9E72998ECBD5}
+	EndGlobalSection
+EndGlobal
