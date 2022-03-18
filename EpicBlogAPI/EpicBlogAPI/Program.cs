@@ -1,11 +1,15 @@
 using EpicBlogAPI;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-builder.Services.AddSingleton<DataRepository>();
+builder.Services.AddSingleton<DataRepository>(container => {
+    var db = new DataRepository();
+    db.InitializeDb();
+
+    return db;
+});
 
 app.MapGet("/", () => "Hello World!");
 
@@ -35,7 +39,7 @@ app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) =>
 });
 
 app.MapDelete("/blog", ([FromServices] DataRepository db, int id) => { 
-    Blog toRemove = db.Blogs.FirstOrDefault(blog => blog.Id == id);
+    Blog? toRemove = db.Blogs.FirstOrDefault(blog => blog.Id == id);
     
     if (toRemove == null)
     { 
@@ -48,7 +52,7 @@ app.MapDelete("/blog", ([FromServices] DataRepository db, int id) => {
 });
 
 app.MapPut("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog, int id) => { 
-    Blog toEdit = db.Blogs.FirstOrDefault(blog => blog.Id == id);
+    Blog? toEdit = db.Blogs.FirstOrDefault(blog => blog.Id == id);
 
     if (toEdit == null)
     { 
