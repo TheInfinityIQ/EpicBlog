@@ -9,6 +9,9 @@ header {
     max-height: 100px;
     min-height: 50px;
     border: 1px solid black;
+
+    position: sticky;
+    top: 0;
 }
 
 /* Content */
@@ -17,11 +20,17 @@ main {
     border: 1px solid black;
 
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
+}
+
+.blog-column {
+    border: 1px solid pink;
+    margin: 1em;
 }
 
 .blog-tool-column {
-    border: 1px solid black;
+    border: 1px solid pink;
+    margin: 1em;
 }
 
 /* Footer */
@@ -30,5 +39,10 @@ footer {
     max-height: 100px;
     min-height: 50px;
 
+    width: 100%;
+
     border: 1px solid black;
+
+    position: fixed;
+    bottom: 0;
 }
