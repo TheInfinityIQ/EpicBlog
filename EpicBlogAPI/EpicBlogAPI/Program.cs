@@ -2,8 +2,6 @@ using EpicBlogAPI;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
-
 builder.Services.AddSingleton<DataRepository>(container => {
     var db = new DataRepository();
     db.InitializeDb();
@@ -11,7 +9,8 @@ builder.Services.AddSingleton<DataRepository>(container => {
     return db;
 });
 
-app.MapGet("/", () => "Hello World!");
+var app = builder.Build();
+
 
 //Get all
 app.MapGet("/blog", ([FromServices] DataRepository db) => {
