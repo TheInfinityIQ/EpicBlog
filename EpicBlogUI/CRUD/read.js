@@ -42,6 +42,7 @@ const readSpecificRequest = (event) => {
         )
         .then((jsonResponse) => {
             console.log(jsonResponse);
+            return jsonResponse;
         }).catch(error => {
             console.log(error);
         });

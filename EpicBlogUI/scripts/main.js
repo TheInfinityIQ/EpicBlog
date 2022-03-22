@@ -9,7 +9,7 @@ let createButton = document.getElementById("CREATE");
 createButton.addEventListener("click", createFunc);
 
 let updateButton = document.getElementById("UPDATE");
-updateButton.addEventListener("click", updateFunc);
+updateButton.addEventListener("submit", updateFunc);
 
 let readButton = document.getElementById("READ");
 readButton.addEventListener("click", readModule.readFunc);

@@ -5,6 +5,7 @@ public class DataRepository
 {
     public List<Blog> Blogs { get; set; }
     private Faker<Blog> _modelFaker;
+    private readonly ILogger _logger;
 
     public DataRepository()
     {
@@ -25,5 +26,9 @@ public class DataRepository
     public void AddContentToDb(int numBlogsToAdd)
     {
         Blogs.AddRange(_modelFaker.Generate(numBlogsToAdd));
+        foreach (Blog blog in Blogs)
+        {
+            _logger.LogInformation("Author: " + blog.Author + "Title: " + blog.Title + "Body: " + blog.Body);
+        }
     }
 }

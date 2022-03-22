@@ -2,7 +2,7 @@ let url = "https://localhost:7061/blog";
 
 const createRequest = () => {
     fetch(url, {
-        method: "GET",
+        method: "POST",
     })
         .then(
             (response) => {
