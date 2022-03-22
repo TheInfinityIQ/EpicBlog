@@ -4,28 +4,32 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Epic Blog</title>
+        <title>IS CHANGED DEPENDING IF UPDATE OR CREATE IS CALLED</title>
         <link rel="stylesheet" href="./styles/reset.css"/>
-        <link rel="stylesheet" href="./styles/default.css">
-        <link rel="stylesheet" href="./styles/index.css"/>
-        <script type="module" src="./scripts/main.js"></script>
+        <link rel="stylesheet" href="./styles/default.css"/>
+        <link rel="stylesheet" href="./styles/useblog.css"/>
     </head>
     <body>
-        <header>
-            <h1>Welcome to the EpicBlog</h1>
-            <p>Where few posts are as epic as the website itself!</p>
-        </header>
+        <head>
+            <header>
+                <h1>EpicBlog</h1>
+                <p>When making or updating a blog, remember to be thoughtful!</p>
+            </header>
+        </head>
         <main>
-            <!-- Cute blog post that is a tutorial -->
-            <article class="blog">
-                <h3 class="blog-title">Welcome to EpicBlog!</h2>
-                <div class="date-author">
-                    <p class="blog-date">Current Date</p>
-                    <p class="blog-author">EpicBlog</p>
-                </div>
-                <p class="blog-body">Before you get started posting... , think before posting, be Epic!</p>
-                <button>Load More</button>
-                <!-- Update list of blogs here up to 20. Add Load More button to the bottom -->
+            <article class="blogs">
+                <section class="blog">
+                    <h2>Blog</h2>
+                    <!-- Changed in JS depending if it's user intended to create or update a blog-->
+                    <h3>Title</h3>
+                    <input type="text" />
+                    <h3>Author</h3>
+                    <input type="text" />
+                    <h3>Body</h3>
+                    <textarea name="" id="blog-body"></textarea>
+                    <!-- rows and columns handled by useblog.css -->
+                    <button id="submit-blog">Submit</button>
+                </section>
             </article>
             <article class="blog-tools">
                 <h2>Blog Tools</h2>
@@ -35,26 +39,26 @@
                         <li>
                             <form id="READ_SPECIFIC">
                                 <label for="blogId"></label>
-                                <input id="blogId" type="number">
-                                <input type="submit">
+                                <input id="blogId" type="number" />
+                                <input type="submit" />
                             </form>
                         </li>
                         <li><button id="READ">Read</button></li>
                         <li>
                             <form id="UPDATE">
                                 <label for="blogId"></label>
-                                <input id="blogId" type="number">
-                                <input type="submit" value="Search">
+                                <input id="blogId" type="number" />
+                                <input type="submit" value="Search" />
                             </form>
                         </li>
                         <li>
                             <form id="DELETE">
                                 <label for="blogId"></label>
-                                <input id="blogId" type="number">
-                                <input type="submit">
+                                <input id="blogId" type="number" />
+                                <input type="submit" />
                             </form>
                         </li>
-                    </ul>   
+                    </ul>
                 </div>
             </article>
         </main>

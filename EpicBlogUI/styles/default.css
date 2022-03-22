@@ -1,0 +1,42 @@
+/* Default values */
+
+main {
+    padding: 1em 3em;
+}
+
+header {
+    width: 100%;
+    max-height: 100px;
+    min-height: 50px;
+    border: 1px solid black;
+
+    position: sticky;
+    top: 0;
+
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer {
+    max-height: 100px;
+    min-height: 50px;
+
+    width: 100%;
+
+    border: 1px solid black;
+
+    position: fixed;
+    bottom: 0;
+}
+
+.blog {
+    border: 1px solid pink;
+    margin: 1em;
+}
+
+.blog-tools {
+    border: 1px solid pink;
+    margin-left: 3em;
+}
+

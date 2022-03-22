@@ -20,4 +20,4 @@ const createRequest = () => {
         });
 };
 
-export const createFunc = createRequest;
+export default createRequest;

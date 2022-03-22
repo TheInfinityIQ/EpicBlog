@@ -1,16 +1,28 @@
 using EpicBlogAPI;
 using Microsoft.AspNetCore.Mvc;
 
+var MyAllowSpecificOrigins = "MyFrontEnd";
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://127.0.0.1:5500");
+                      });
+});
+
 builder.Services.AddSingleton<DataRepository>(container => {
     var db = new DataRepository();
     db.InitializeDb();
-
+    db.AddContentToDb(20);
     return db;
 });
 
 var app = builder.Build();
-
+app.UseCors(MyAllowSpecificOrigins);
 
 //Get all
 app.MapGet("/blog", ([FromServices] DataRepository db) => {

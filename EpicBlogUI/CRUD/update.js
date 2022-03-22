@@ -1,6 +1,6 @@
 let url = "https://localhost:7061/blog";
 
-const updateRequest = () => {
+const updateRequest = (id) => {
     fetch(url, {
         method: "GET",
     })
@@ -20,4 +20,4 @@ const updateRequest = () => {
         });
 };
 
-export const updateFunc = updateRequest;
+export default updateRequest;

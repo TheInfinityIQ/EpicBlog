@@ -1,6 +1,6 @@
 let url = "https://localhost:7061/blog";
 
-const deleteRequest = () => {
+const deleteRequest = (id) => {
     fetch(url, {
         method: "GET",
     })
@@ -20,4 +20,4 @@ const deleteRequest = () => {
         });
 };
 
-export const deleteFunc = deleteRequest;
+export default deleteRequest;
