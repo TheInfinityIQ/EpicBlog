@@ -10,7 +10,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://127.0.0.1:5500");
+                          builder.WithOrigins("http://127.0.0.1:5500", "https://127.0.0.1:5500").AllowAnyMethod();
                       });
 });
 
@@ -49,7 +49,7 @@ app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) =>
     return Results.Ok();
 });
 
-app.MapDelete("/blog", ([FromServices] DataRepository db, int id) => { 
+app.MapDelete("/blog/{id}", ([FromServices] DataRepository db, int id) => { 
     Blog? toRemove = db.Blogs.FirstOrDefault(blog => blog.Id == id);
     
     if (toRemove == null)

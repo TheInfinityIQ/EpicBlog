@@ -24,7 +24,7 @@ const readRequest = () => {
 
 const readSpecificRequest = (event) => {
     event.preventDefault();
-    let id = document.getElementById("blogId").value;
+    let id = document.getElementById("blogId-specific").value;
     
     fetch(url + "/" + id, {
         method: "GET",
