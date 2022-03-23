@@ -1,8 +1,122 @@
-/* Content */
+.blog-window-header {
+    margin: 1em;
+    font-size: 125%;
 
-main {
-    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.blog-tools {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    margin-bottom: 1em;
+}
+
+.blog {
+    border: 2px solid pink;
+    border-radius: 15px;
+    min-height: 25em;
 
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 2fr 1fr 4fr;
+    justify-items: center;
+}
+
+.blog-header {
+    /* border: 1px solid black; */
+    max-width: 100em;
+    width: 80%;
+    margin-top: 3em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 150%;
+}
+
+.blog-body {
+    margin: 5%;
+    max-width: 100em;
+    line-height: 1.6em;
+}
+
+.blog-sub-header {
+    display: inline-flex;
+    width: 80%;
+    max-width: 100em;
+    /* border: 1px solid black; */
+    height: 1.5em;
+    align-items: center;
+    justify-content: space-around;
+
+    font-style: italic;
+}
+
+.blog-sub-header.p {
+    padding: 4em;
+}
+
+img {
+    width: 4em;
+    height: auto;
+
+    margin: 2em;
+}
+
+.left {
+    width: 0;
+    height: 0;
+
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+
+    border-right: 60px solid pink;
+}
+
+.left:hover {
+    transition: 0.2s;
+    border-top: 70px solid transparent;
+    border-bottom: 70px solid transparent;
+}
+
+.left:active {
+    transition: 0.2s;
+    border-top: 70px solid transparent;
+    border-bottom: 70px solid transparent;
+
+    border-right: 70px solid pink;
+}
+
+.right{
+    width: 0;
+    height: 0;
+
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+
+    border-left: 60px solid pink;
+}
+
+.right:hover {
+    transition: 0.2s;
+    border-top: 70px solid transparent;
+    border-bottom: 70px solid transparent;
+}
+
+.right:active {
+    transition: 0.2s;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+
+    border-left: 70px solid pink;
+}
+
+.blog-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }

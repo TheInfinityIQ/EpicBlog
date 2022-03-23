@@ -12,51 +12,55 @@
     </head>
     <body>
         <header>
-            <h1>Welcome to the EpicBlog</h1>
-            <p>Where few posts are as epic as the website itself!</p>
+            <section class="header-text">
+                <h1>Welcome to the EpicBlog</h1>
+                <p>Where few posts are as epic as the website itself!</p>
+            </section>
+            <nav class="header-nav">
+                <button id="nav-update">Update</button>
+                <button id="nav-delete">Create</button>
+            </nav>
         </header>
         <main>
-            <!-- Cute blog post that is a tutorial -->
-            <article class="blog">
-                <h3 class="blog-title">Welcome to EpicBlog!</h2>
-                <div class="date-author">
-                    <p class="blog-date">Current Date</p>
-                    <p class="blog-author">EpicBlog</p>
-                </div>
-                <p class="blog-body">Before you get started posting... , think before posting, be Epic!</p>
-                <button>Load More</button>
-                <!-- Update list of blogs here up to 20. Add Load More button to the bottom -->
-            </article>
-            <article class="blog-tools">
-                <h2>Blog Tools</h2>
-                <div class="tool-bar">
-                    <ul>
-                        <li><button id="CREATE">Create</button></li>
-                        <li>
-                            <form id="READ_SPECIFIC">
-                                <label for="blogId">Read Specific</label>
-                                <input id="blogId-specific" type="number">
-                                <input type="submit">
-                            </form>
-                        </li>
-                        <li><button id="READ">Read</button></li>
-                        <li>
-                            <form id="UPDATE">
-                                <label for="blogId">Update</label>
-                                <input id="blogId-update" type="number">
-                                <input type="submit" value="Search">
-                            </form>
-                        </li>
-                        <li>
-                            <form id="DELETE">
-                                <label for="blogId">Delete</label>
-                                <input id="blogId-delete" type="number">
-                                <input type="submit">
-                            </form>
-                        </li>
-                    </ul>   
-                </div>
-            </article>
+            <section>
+                <h2 class="blog-window-header">Blog Tools!</h2>
+                <section class="blog-tools">
+                    <div class="input-box">
+                        <label for="delete">Enter ID of blog to delete: </label>
+                        <input type="number" id="read">
+                        <input type="submit" value="Submit">
+                    </div>
+                    <div class="input-box">
+                        <label for="delete">Enter ID of blog to read: </label>
+                        <input type="number" id="read">
+                        <input type="submit" value="submit">
+                    </div>
+                </section>
+            </section>
+            <div class="blog-box">
+                <div class="arrow left"></div>
+                <!-- <img src="arrow_left.svg" alt=""> -->
+                <article class="blog">
+                    <section class="blog-header">
+                        <h3>Blog Title</h3>
+                    </section>
+                    <section class="blog-sub-header">
+                        <p>Author</p>
+                        <p>Date</p>
+                    </section>
+                    <section class="blog-body">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tincidunt felis, sed pulvinar urna. Sed tincidunt accumsan purus. Donec in metus eros. Donec ullamcorper convallis dui, eu dictum justo pharetra nec. Duis a ex imperdiet, venenatis ex vel, ultrices nulla. Mauris at mattis dolor, sed pharetra lorem. Nullam imperdiet, metus quis vulputate ullamcorper, lacus turpis bibendum quam, et dapibus leo lectus nec arcu. Proin nec efficitur tortor. Vestibulum tincidunt vulputate urna, vel faucibus ipsum vulputate sed. Nulla facilisi. Fusce in ornare velit. Aliquam erat volutpat. Pellentesque metus dui, euismod in pharetra imperdiet, dapibus eu nibh. Aliquam eu lacus enim.
+    
+                            Aenean nec libero eu est gravida mattis. Vivamus vitae leo non mi pellentesque iaculis a pulvinar urna. Quisque purus enim, dictum sit amet erat non, condimentum ornare tellus. Praesent gravida odio at nisl dignissim, vel blandit ipsum ultricies. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus lectus arcu, egestas vel felis sit amet, fermentum mollis neque. Mauris sit amet porta diam. Fusce sit amet efficitur metus, ut blandit tortor.
+                            
+                            Nullam hendrerit orci enim, porttitor sollicitudin ipsum finibus a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur non finibus elit, ac semper velit. Sed nisi ex, feugiat nec lorem id, luctus pretium metus. Aliquam id bibendum eros. Duis nec hendrerit ipsum, et efficitur velit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi tristique purus id lorem fringilla lacinia sit amet at augue. 
+                        </p>
+                    </section>
+                </article>
+                <div class="arrow right"></div>
+                <!-- <img src="arrow_right.svg" alt=""> -->
+            </div>
         </main>
         <footer>
             <p>Some legal information</p>
