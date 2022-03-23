@@ -17,7 +17,8 @@ const readRequest = () => {
         )
         .then((jsonResponse) => {
             console.log(jsonResponse);
-        }).catch(error => {
+        })
+        .catch((error) => {
             console.log(error);
         });
 };
@@ -25,28 +26,29 @@ const readRequest = () => {
 const readSpecificRequest = (event) => {
     event.preventDefault();
     let id = document.getElementById("blogId-specific").value;
-    
+
     fetch(url + "/" + id, {
         method: "GET",
     })
-    .then(
-        (response) => {
-            if (response.ok) {
-                return response.json();
+        .then(
+            (response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error("Request failed!");
+            },
+            (networkError) => {
+                console.log("Network error: " + networkError.message);
             }
-            throw new Error("Request failed!");
-        },
-        (networkError) => {
-            console.log("Network error: " + networkError.message);
-        }
         )
         .then((jsonResponse) => {
             console.log(jsonResponse);
             return jsonResponse;
-        }).catch(error => {
+        })
+        .catch((error) => {
             console.log(error);
         });
-        console.log("in read specific request");
-    }
+    console.log("in read specific request");
+};
 
-export {readRequest as readFunc, readSpecificRequest as readSpecificFunc};
+export { readRequest as readFunc, readSpecificRequest as readSpecificFunc };

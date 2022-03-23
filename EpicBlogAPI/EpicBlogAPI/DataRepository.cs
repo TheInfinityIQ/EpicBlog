@@ -5,15 +5,17 @@ public class DataRepository
 {
     public List<Blog> Blogs { get; set; }
     private Faker<Blog> _modelFaker;
-    private readonly ILogger _logger;
+    private readonly ILogger<DataRepository> _logger;
 
-    public DataRepository()
+    public DataRepository(ILogger<DataRepository> logger)
     {
         Blogs = new List<Blog>();
         _modelFaker = new Faker<Blog>()
             .RuleFor(o => o.Author, f => f.Name.FirstName())
             .RuleFor(o => o.Title, f => f.Random.Words(f.Random.Int(1, 4)))
             .RuleFor(o => o.Body, f => f.Lorem.Sentences(f.Random.Int(2, 7)));
+
+        _logger = logger;
     }
 
     public void InitializeDb()

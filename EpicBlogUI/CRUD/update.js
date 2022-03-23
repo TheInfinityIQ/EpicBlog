@@ -1,17 +1,17 @@
 
 let url = "https://localhost:7061/blog";
 
-const updateRequest = (event) => {
+const updateRequest = async (event) => {
+    let id = document.getElementById("blogId-update").value;
+    window.location.href = "http://127.0.0.1:5500/useblog.html";
     //  Prevent from loading until blog is found
     event.preventDefault();
     
     // Get blog
-    let id = document.getElementById("blogId-update").value;
-    const blogToEdit = fetch(url + "/" + id, {method: "GET"}).then((response) => {
+    let blogToEdit = await fetch(url + "/" + id, {method: "GET"}).then((response) => {
         if (response.ok)
         {
-            // console.log(response.json());
-            return response.json()
+            return response.json();
         }
     }).catch(error => {
         console.log("Update error: " + error.message + ". Returning to index...");
@@ -19,11 +19,14 @@ const updateRequest = (event) => {
     })
 
     console.log(blogToEdit);
-    
+
+    //TODO: Set values
+    document.getElementById("blog-title").value;
+    document.getElementById("blog-author").value;
+    document.getElementById("blog-body").value;
+
     // Get informatation and insert it into fields to make it easier to implement smaller changes into a blog
 
-    document.title = "Epic Blog - Update";
-    
     // fetch(url, {
     //     method: "PUT",
     // })

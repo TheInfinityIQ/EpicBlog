@@ -14,10 +14,6 @@ main {
 
 /* Blog */
 
-/* .blog.h2 {
-    margin-bottom: 1em;
-} */
-
 /* height of 4 em, width of 50 em is equivalent to rows: 4, cols: 50*/
 textarea, input[type="number"]{
     width: 60%;

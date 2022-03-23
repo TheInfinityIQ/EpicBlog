@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,30 +8,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Epic Blog</title>
         <link rel="stylesheet" href="./styles/reset.css"/>
-        <link rel="stylesheet" href="./styles/default.css"/>
+        <link rel="stylesheet" href="./styles/default.css">
         <link rel="stylesheet" href="./styles/useblog.css"/>
+        <script type="module" src="./scripts/main.js"></script>
     </head>
     <body>
-        <head>
-            <header>
-                <h1>EpicBlog</h1>
-                <p>When making or updating a blog, remember to be thoughtful!</p>
-            </header>
-        </head>
+        <header>
+            <h1>Welcome to the EpicBlog</h1>
+            <p>Where few posts are as epic as the website itself!</p>
+        </header>
         <main>
-            <article class="blogs">
-                <section class="blog">
-                    <h2>Blog</h2>
-                    <!-- Changed in JS depending if it's user intended to create or update a blog-->
-                    <h3>Title</h3>
-                    <input type="text" />
-                    <h3>Author</h3>
-                    <input type="text" />
-                    <h3>Body</h3>
-                    <textarea name="" id="blog-body"></textarea>
-                    <!-- rows and columns handled by useblog.css -->
-                    <button id="submit-blog">Submit</button>
-                </section>
+            <!-- Cute blog post that is a tutorial -->
+            <article class="blog">
+                <form id="blog-update">
+                    <label for="blog-title">Title</label>
+                    <input type="text" id="blog-title">
+                    <label for="blog-author">Author</label>
+                    <input type="text" id="blog-author">
+                    <label for="blog-body">Body</label>
+                    <textarea id="blog-body" cols="20" rows="10"></textarea>
+                </form>
             </article>
             <article class="blog-tools">
                 <h2>Blog Tools</h2>
@@ -38,27 +36,27 @@
                         <li><button id="CREATE">Create</button></li>
                         <li>
                             <form id="READ_SPECIFIC">
-                                <label for="blogId"></label>
-                                <input id="blogId-specific" type="number" />
-                                <input type="submit" />
+                                <label for="blogId">Read Specific</label>
+                                <input id="blogId-specific" type="number">
+                                <input type="submit">
                             </form>
                         </li>
                         <li><button id="READ">Read</button></li>
                         <li>
                             <form id="UPDATE">
-                                <label for="blogId"></label>
-                                <input id="blogId-update" type="number" />
-                                <input type="submit" value="Search" />
+                                <label for="blogId">Update</label>
+                                <input id="blogId-update" type="number">
+                                <input type="submit" value="Search">
                             </form>
                         </li>
                         <li>
                             <form id="DELETE">
-                                <label for="blogId"></label>
-                                <input id="blogId-delete" type="number" />
-                                <input type="submit" />
+                                <label for="blogId">Delete</label>
+                                <input id="blogId-delete" type="number">
+                                <input type="submit">
                             </form>
                         </li>
-                    </ul>
+                    </ul>   
                 </div>
             </article>
         </main>
