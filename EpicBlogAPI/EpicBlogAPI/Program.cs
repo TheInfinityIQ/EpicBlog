@@ -18,7 +18,8 @@ builder.Services.AddCors(options =>
                       });
 });
 
-builder.Services.AddSingleton<DataRepository>(container =>{
+builder.Services.AddSingleton<DataRepository>(container =>
+{
     var logger = container.GetRequiredService<ILogger<DataRepository>>();
     var db = new DataRepository(logger);
     db.InitializeDb();
@@ -50,6 +51,11 @@ app.MapGet("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) 
     }
 
     return Results.Ok(blog);
+});
+
+app.MapGet("/blog/size", ([FromServices] DataRepository db) =>
+{
+    return db.Blogs.Count();
 });
 
 app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) =>

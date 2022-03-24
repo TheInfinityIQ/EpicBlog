@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="./styles/default.css">
         <link rel="stylesheet" href="./styles/index.css"/>
         <script type="module" src="./scripts/main.js"></script>
+        <script type="module" scr="./scripts/changeBlog.js"></script>
     </head>
     <body>
         <header>
@@ -38,18 +39,22 @@
                 </section>
             </section>
             <div class="blog-box">
-                <div class="arrow left"></div>
+                <div id="arrow-left"></div>
                 <!-- <img src="arrow_left.svg" alt=""> -->
                 <article class="blog">
                     <section class="blog-header">
-                        <h3>Blog Title</h3>
+                        <h3 id="blog-title">Blog Title</h3>
                     </section>
                     <section class="blog-sub-header">
-                        <p>Author</p>
-                        <p>Date</p>
+                        <p id="blog-author">Author: </p>
+                        <p id="blog-date">Date: </p>
+                        <div class="inline-flex">
+                            <p>Id: </p>
+                            <p id="currentId">0</p>
+                        </div>
                     </section>
                     <section class="blog-body">
-                        <p>
+                        <p id="blog-body">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tincidunt felis, sed pulvinar urna. Sed tincidunt accumsan purus. Donec in metus eros. Donec ullamcorper convallis dui, eu dictum justo pharetra nec. Duis a ex imperdiet, venenatis ex vel, ultrices nulla. Mauris at mattis dolor, sed pharetra lorem. Nullam imperdiet, metus quis vulputate ullamcorper, lacus turpis bibendum quam, et dapibus leo lectus nec arcu. Proin nec efficitur tortor. Vestibulum tincidunt vulputate urna, vel faucibus ipsum vulputate sed. Nulla facilisi. Fusce in ornare velit. Aliquam erat volutpat. Pellentesque metus dui, euismod in pharetra imperdiet, dapibus eu nibh. Aliquam eu lacus enim.
     
                             Aenean nec libero eu est gravida mattis. Vivamus vitae leo non mi pellentesque iaculis a pulvinar urna. Quisque purus enim, dictum sit amet erat non, condimentum ornare tellus. Praesent gravida odio at nisl dignissim, vel blandit ipsum ultricies. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus lectus arcu, egestas vel felis sit amet, fermentum mollis neque. Mauris sit amet porta diam. Fusce sit amet efficitur metus, ut blandit tortor.
@@ -58,7 +63,7 @@
                         </p>
                     </section>
                 </article>
-                <div class="arrow right"></div>
+                <div id="arrow-right"></div>
                 <!-- <img src="arrow_right.svg" alt=""> -->
             </div>
         </main>
