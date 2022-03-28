@@ -1,13 +1,21 @@
+import blogs from "../scripts/state.js";
+
 let url = "https://localhost:7061/blog";
 
 const deleteRequest = (event) => {
     event.preventDefault();
-    let id = document.getElementById("blogId-delete").value;
+    
+    let currentIndex = document.getElementById("currentIndex").innerHTML * 1;
+    
+    let title = blogs[currentIndex].title;
+    blogs.splice(currentIndex, 1); // Removes from state
 
-    fetch(url + "/" + id, { method: "DELETE" }).then(
+    // Removes from DB
+    fetch(url + "/" + title, { method: "DELETE" }).then(
         (response) => {
             if (response.ok) {
                 console.log("Successfully removed");
+                window.location.reload();
                 return;
             }
             throw new Error("Request failed!");
@@ -18,4 +26,6 @@ const deleteRequest = (event) => {
     );
 };
 
+// Force reload
+ 
 export default deleteRequest;

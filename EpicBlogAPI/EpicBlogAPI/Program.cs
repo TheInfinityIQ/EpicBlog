@@ -64,9 +64,9 @@ app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) =>
     return Results.Ok();
 });
 
-app.MapDelete("/blog/{id}", ([FromServices] DataRepository db, int id) =>
+app.MapDelete("/blog/{title}", ([FromServices] DataRepository db, string title) =>
 {
-    Blog? toRemove = db.Blogs.FirstOrDefault(blog => blog.Id == id);
+    Blog? toRemove = db.Blogs.FirstOrDefault(blog => blog.Title == title);
 
     if (toRemove == null)
     {

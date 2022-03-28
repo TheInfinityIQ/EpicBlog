@@ -2,7 +2,7 @@
 
 main {
     /* May need to adjust depending on window size */
-    margin: 3em 10em;
+    margin: 0 10em 7em 10em;
 }
 
 header {
@@ -22,8 +22,8 @@ header {
 }
 
 footer {
-    max-height: 100px;
-    min-height: 50px;
+    background-color: lightblue;
+    height: 5em;
 
     width: 100%;
 
