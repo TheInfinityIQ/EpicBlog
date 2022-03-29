@@ -19,6 +19,12 @@ blogs.addEventListener("click", readModule.log);
 let read = document.getElementById("click-read");
 read.addEventListener("click", changeModule.readBlog);
 
-// Nav
 let deleteButton = document.getElementById("delete-button");
 deleteButton.addEventListener("click", deleteFunc);
+
+// Nav
+let updateButton = document.getElementById("nav-update");
+updateButton.addEventListener("click", changeModule.update)
+
+let createButton = document.getElementById("Create");
+updateButton.addEventListener("click", changeModule.create)

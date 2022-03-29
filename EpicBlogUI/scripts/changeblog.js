@@ -20,7 +20,7 @@ const previous = () => {
     document.getElementById("blog-body").innerHTML = blogsModule.blogs[currentIndex].body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blogsModule.blogs[currentIndex].id;
-};
+}
 
 const next = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
@@ -37,7 +37,7 @@ const next = () => {
     document.getElementById("blog-body").innerHTML = blogsModule.blogs[currentIndex].body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blogsModule.blogs[currentIndex].id;
-};
+}
 
 // page specific fun
 const read = async () => {
@@ -55,10 +55,34 @@ const read = async () => {
     document.getElementById("blog-body").innerHTML = blog.body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blog.id;
-};
+}
 
-const update = () => {
+const update = async() => {
+    let blog = await readModule.readSpecificFunc();
+    
+    addHomeButton();
+    removeHomeFeatures();
+    addTextAreasOverBodyAndTitle();
+    
+    let deleteForm = document.querySelector("#delete-form");
+    let submitForm = document.createElement("form");
+    submitForm.class = "inline-flex";
+    submitForm.id = "submit-form";
 
+    let submitButton = document.createElement("button");
+    submitButton.type = "button";
+    submitButton.id = "submit-button";
+    submitButton.innerHTML = "Submit";
+
+    deleteForm.replaceWith(submitButton);
+
+    //Change body to text area and insert value
+    document.getElementById("blog-titleTextArea").innerHTML = blog.title;
+    document.getElementById("blog-author").innerHTML = blog.author;
+    document.getElementById("blog-date").innerHTML = new Date(blog.date).toLocaleDateString("en-US", dateOptions);
+    document.getElementById("blog-bodyTextArea").value = blog.body;
+    document.getElementById("currentIndex").innerHTML = currentIndex;
+    document.getElementById("blog-id").innerHTML = blog.id;
 }
 
 const create = () => {
@@ -93,4 +117,20 @@ const addHomeButton = () => {
     document.querySelector(".header-nav").appendChild(nodeHomeButton);
 }
 
-export { previous as previousBlog, next as nextBlog, read as readBlog, home as home };
+const addTextAreasOverBodyAndTitle = () => {
+    let body = document.getElementById("blog-body");
+    let bodyTextArea = document.createElement("textarea");
+    bodyTextArea.rows = 20;
+    bodyTextArea.cols = 45;
+    bodyTextArea.id = "blog-bodyTextArea";
+    document.querySelector(".blog-body").replaceChild(bodyTextArea, body);
+
+    let title = document.getElementById("blog-title");
+    let titleTextArea = document.createElement("textarea");
+    titleTextArea.rows = 15;
+    titleTextArea.cols = 45;
+    titleTextArea.id = "blog-titleTextArea";
+    document.querySelector(".blog-header").replaceChild(titleTextArea, title);
+}
+
+export { previous as previousBlog, next as nextBlog, read as readBlog, home as home, update as update, create as create };
