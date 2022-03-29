@@ -10,8 +10,11 @@ previous.addEventListener("click", changeModule.previousBlog);
 let next = document.getElementById("arrow-right");
 next.addEventListener("click", changeModule.nextBlog);
 
-// let read = document.getElementById("read").value;
-// read.addEventListener("submit", ); // May be checking wrong element
+let blogs = document.getElementById("nav-log-blogs");
+blogs.addEventListener("click", readModule.log);
+
+let read = document.getElementById("click-read");
+read.addEventListener("click", changeModule.readBlog);
 
 let deleteButton = document.getElementById("delete-button");
 deleteButton.addEventListener("click", deleteFunc);

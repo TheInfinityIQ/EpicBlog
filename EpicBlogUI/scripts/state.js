@@ -1,5 +1,7 @@
 let url = "https://localhost:7061/blog";
 
+let storedBlog;
+
 const blogs = await fetch(url, {
     method: "GET",
 })
@@ -18,4 +20,4 @@ const blogs = await fetch(url, {
         console.log(error);
 });
 
-export default blogs;
+export {blogs as blogs, storedBlog as blog} ;

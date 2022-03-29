@@ -1,4 +1,4 @@
-import blogs from "../scripts/state.js";
+import * as blogsModule from "../scripts/state.js";
 
 let url = "https://localhost:7061/blog";
 
@@ -7,8 +7,8 @@ const deleteRequest = (event) => {
     
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1;
     
-    let title = blogs[currentIndex].title;
-    blogs.splice(currentIndex, 1); // Removes from state
+    let title = blogsModule.blogs[currentIndex].title;
+    blogsModule.blogs.splice(currentIndex, 1); // Removes from state
 
     // Removes from DB
     fetch(url + "/" + title, { method: "DELETE" }).then(
@@ -25,7 +25,5 @@ const deleteRequest = (event) => {
         }
     );
 };
-
-// Force reload
  
 export default deleteRequest;
