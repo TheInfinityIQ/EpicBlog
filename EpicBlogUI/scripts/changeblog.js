@@ -1,8 +1,6 @@
 import * as blogsModule from "./state.js";
 import * as readModule from "../CRUD/read.js";
 
-// console.log(blogsModule.blogs);
-
 const previous = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
 
@@ -38,16 +36,11 @@ const next = () => {
 };
 
 const read = async () => {
-    console.log("Inside read...");
-    
     let blog = await readModule.readSpecificFunc();
-    console.log("Got blog using readSpecificFunc: ...");
-    console.log(blog);
-
-    // POSSIBLE
-    window.location.href = "http://127.0.0.1:5500/read.html";
     
-    console.log("Changed windows...");
+    document.getElementById("arrow-left").style.display = 'none';
+    document.getElementById("arrow-right").style.display = 'none';
+    document.getElementById("index").style.display= 'none';
 
     document.getElementById("blog-title").innerHTML = blog.title;
     document.getElementById("blog-author").innerHTML = blog.author;
@@ -55,7 +48,6 @@ const read = async () => {
     document.getElementById("blog-body").innerHTML = blog.body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blog.id;
-    console.log("Updated blog on page...");
 };
 
 export { previous as previousBlog, next as nextBlog, read as readBlog };
