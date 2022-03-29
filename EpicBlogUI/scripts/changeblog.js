@@ -49,20 +49,7 @@ const next = () => {
 
 const read = async () => {
     let blog = await readModule.readSpecificFunc();
-
-    //Add script(s) to header
-    let head = document.querySelector("head");
-    let nodeHeadEventListener = document.createElement("script");
-    nodeHeadEventListener.src = "./scripts/home.js";
-    nodeHeadEventListener.type = "module";
-    head.appendChild(nodeHeadEventListener);
-
-    // Create Home Button
-    let nodeHomeButton = document.createElement("button");
-    nodeHomeButton.id = "nav-home";
-    let textNode = document.createTextNode("Home");
-    nodeHomeButton.appendChild(textNode);
-    document.querySelector(".header-nav").appendChild(nodeHomeButton);
+    addHomeButton();
 
     // Remove unneeded elements
     document.getElementById("arrow-left").style.display = "none";
@@ -79,7 +66,19 @@ const read = async () => {
 };
 
 const addHomeButton = () => {
+    //Add script(s) to header
+    let head = document.querySelector("head");
+    let nodeHeadEventListener = document.createElement("script");
+    nodeHeadEventListener.src = "./scripts/home.js";
+    nodeHeadEventListener.type = "module";
+    head.appendChild(nodeHeadEventListener);
 
+    // Create Home Button
+    let nodeHomeButton = document.createElement("button");
+    nodeHomeButton.id = "nav-home";
+    let textNode = document.createTextNode("Home");
+    nodeHomeButton.appendChild(textNode);
+    document.querySelector(".header-nav").appendChild(nodeHomeButton);
 }
 
 export { previous as previousBlog, next as nextBlog, read as readBlog, home as home };
