@@ -53,7 +53,7 @@ const read = async () => {
     //Add script(s) to header
     let head = document.querySelector("head");
     let nodeHeadEventListener = document.createElement("script");
-    nodeHeadEventListener.src = "./scripts/readEventListeners.js";
+    nodeHeadEventListener.src = "./scripts/home.js";
     nodeHeadEventListener.type = "module";
     head.appendChild(nodeHeadEventListener);
 
@@ -77,5 +77,9 @@ const read = async () => {
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blog.id;
 };
+
+const addHomeButton = () => {
+
+}
 
 export { previous as previousBlog, next as nextBlog, read as readBlog, home as home };
