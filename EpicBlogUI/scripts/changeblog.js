@@ -3,6 +3,16 @@ import * as readModule from "../CRUD/read.js";
 
 let dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 
+const home = () => {
+    // // Remove unneeded elements UNSURE IF NEEDED?!
+    // document.getElementById("arrow-left").style.display = "block";
+    // document.getElementById("arrow-right").style.display = "block";
+    // document.getElementById("index").style.display = "block";
+    // document.getElementById("nav-home").remove();
+
+    window.location.reload();
+}
+
 const previous = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
 
@@ -40,19 +50,19 @@ const next = () => {
 const read = async () => {
     let blog = await readModule.readSpecificFunc();
 
-    // Nav bar
-    // <nav class="header-nav">
-    //     <button id="nav-update">Update</button>
-    //     <button id="nav-delete">Create</button>
-    //     <button id="nav-log-blogs">LogBlogs</button>
-    // </nav>;
+    //Add script(s) to header
+    let head = document.querySelector("head");
+    let nodeHeadEventListener = document.createElement("script");
+    nodeHeadEventListener.src = "./scripts/readEventListeners.js";
+    nodeHeadEventListener.type = "module";
+    head.appendChild(nodeHeadEventListener);
 
     // Create Home Button
-    let node = document.createElement("button");
-    node.id = "nav-home";
+    let nodeHomeButton = document.createElement("button");
+    nodeHomeButton.id = "nav-home";
     let textNode = document.createTextNode("Home");
-    node.appendChild(textNode);
-    document.querySelector(".header-nav").appendChild(node);
+    nodeHomeButton.appendChild(textNode);
+    document.querySelector(".header-nav").appendChild(nodeHomeButton);
 
     // Remove unneeded elements
     document.getElementById("arrow-left").style.display = "none";
@@ -68,4 +78,4 @@ const read = async () => {
     document.getElementById("blog-id").innerHTML = blog.id;
 };
 
-export { previous as previousBlog, next as nextBlog, read as readBlog };
+export { previous as previousBlog, next as nextBlog, read as readBlog, home as home };

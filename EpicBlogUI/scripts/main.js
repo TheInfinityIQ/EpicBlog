@@ -18,4 +18,3 @@ read.addEventListener("click", changeModule.readBlog);
 
 let deleteButton = document.getElementById("delete-button");
 deleteButton.addEventListener("click", deleteFunc);
-
