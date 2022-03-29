@@ -20,4 +20,9 @@ const blogs = await fetch(url, {
         console.log(error);
 });
 
+let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+blogs.forEach(blog => {
+    blog.date = new Date(blog.date).toLocaleDateString("en-US", options);
+});
+
 export {blogs as blogs, storedBlog as blog} ;
