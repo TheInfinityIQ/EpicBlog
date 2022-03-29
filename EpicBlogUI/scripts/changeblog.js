@@ -3,16 +3,8 @@ import * as readModule from "../CRUD/read.js";
 
 let dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 
-const home = () => {
-    // // Remove unneeded elements UNSURE IF NEEDED?!
-    // document.getElementById("arrow-left").style.display = "block";
-    // document.getElementById("arrow-right").style.display = "block";
-    // document.getElementById("index").style.display = "block";
-    // document.getElementById("nav-home").remove();
 
-    window.location.reload();
-}
-
+// Home Featyres
 const previous = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
 
@@ -47,14 +39,14 @@ const next = () => {
     document.getElementById("blog-id").innerHTML = blogsModule.blogs[currentIndex].id;
 };
 
+// page specific fun
 const read = async () => {
     let blog = await readModule.readSpecificFunc();
+    
     addHomeButton();
+    removeHomeFeatures();
 
-    // Remove unneeded elements
-    document.getElementById("arrow-left").style.display = "none";
-    document.getElementById("arrow-right").style.display = "none";
-    document.getElementById("index").style.display = "none";
+    document.getElementById("read-box").remove();
 
     //Update blog based on search
     document.getElementById("blog-title").innerHTML = blog.title;
@@ -64,6 +56,26 @@ const read = async () => {
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blog.id;
 };
+
+const update = () => {
+
+}
+
+const create = () => {
+
+}
+
+//General func
+const home = () => {
+    window.location.reload();
+}
+
+const removeHomeFeatures = () => {
+    // Remove unneeded elements
+    document.getElementById("arrow-left").style.display = "none";
+    document.getElementById("arrow-right").style.display = "none";
+    document.getElementById("index").style.display = "none";
+}
 
 const addHomeButton = () => {
     //Add script(s) to header
