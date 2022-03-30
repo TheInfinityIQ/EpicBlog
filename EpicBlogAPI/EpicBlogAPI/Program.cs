@@ -1,6 +1,6 @@
 using EpicBlogAPI;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Text.Json;
 
 var MyAllowSpecificOrigins = "MyFrontEnd";
 
@@ -14,8 +14,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://127.0.0.1:5500", "https://127.0.0.1:5500").AllowAnyMethod();
-                      });
+                          builder.WithOrigins("http://127.0.0.1:5500", "https://127.0.0.1:5500").AllowAnyMethod().AllowAnyHeader();
+                      })
+    ;
 });
 
 builder.Services.AddSingleton<DataRepository>(container =>
@@ -78,7 +79,7 @@ app.MapDelete("/blog/{title}", ([FromServices] DataRepository db, string title) 
     return Results.Ok();
 });
 
-app.MapPut("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog, int id) =>
+app.MapPut("/blog/{id}", ([FromServices] DataRepository db, [FromBody] Blog blog, int id, ILogger<Program> logger) =>
 {
     Blog? toEdit = db.Blogs.FirstOrDefault(blog => blog.Id == id);
 
@@ -86,9 +87,14 @@ app.MapPut("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog, int
     {
         return Results.BadRequest();
     }
+    string jsonBlogs = JsonSerializer.Serialize(db.Blogs);
+    logger.LogInformation(jsonBlogs);
 
-    int indexOfToEdit = db.Blogs.IndexOf(blog);
+    int indexOfToEdit = db.Blogs.IndexOf(toEdit);
     db.Blogs[indexOfToEdit] = blog;
+
+    jsonBlogs = JsonSerializer.Serialize(db.Blogs);
+    logger.LogInformation(jsonBlogs);
 
     return Results.Ok();
 

@@ -2,8 +2,8 @@
 let url = "https://localhost:7061/blog";
 
 const updateRequest = async (updatedBlog) => {
-    let id = document.getElementById("blog-id").value;
-    console.log(id);
+    let id = document.getElementById("blog-id").innerHTML;
+    updatedBlog.date = new Date(updatedBlog.date).toISOString();
     
     let options = {
         method: "PUT",
@@ -14,11 +14,11 @@ const updateRequest = async (updatedBlog) => {
     await fetch(url + "/" + id, options).then((response) => {
         if (response.ok)
         {
-            console.log();
-            return response.json();
+            return;
         }
+        throw new Error("Error when updating code");
     }).catch(error => {
-        console.log("Update error: " + error.message + ". Returning to index...");
+        console.log(console.log(error.message));
         window.location.reload();
     })
 };

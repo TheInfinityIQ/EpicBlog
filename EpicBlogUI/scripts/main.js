@@ -2,7 +2,7 @@ import createFunc from "../CRUD/create.js";
 import * as updateHandlerModule from "./onUpdate.js";
 import * as readModule from "../CRUD/read.js";
 import deleteFunc from "../CRUD/delete.js";
-import * as changeModule from "./changeblog.js";
+import * as changeModule from "./changeBlog.js";
 
 //Home features
 let previous = document.getElementById("arrow-left");
@@ -33,6 +33,4 @@ let updateButton = document.getElementById("nav-update");
 updateButton.addEventListener("click", changeModule.update);
 
 let createButton = document.getElementById("Create");
-updateButton.addEventListener("click", changeModule.create);
-
-//
+createButton.addEventListener("click", changeModule.create);

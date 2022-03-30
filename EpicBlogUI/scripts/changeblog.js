@@ -1,4 +1,4 @@
-import * as stateModule from "./state.js"
+import * as stateModule from "./state.js";
 import * as blogsModule from "./state.js";
 import * as readModule from "../CRUD/read.js";
 
@@ -20,7 +20,7 @@ const previous = () => {
     document.getElementById("blog-body").innerHTML = blogsModule.blogs[currentIndex].body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blogsModule.blogs[currentIndex].id;
-}
+};
 
 const next = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
@@ -37,12 +37,12 @@ const next = () => {
     document.getElementById("blog-body").innerHTML = blogsModule.blogs[currentIndex].body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blogsModule.blogs[currentIndex].id;
-}
+};
 
 // page specific fun
 const read = async () => {
     let blog = await readModule.readSpecificFunc();
-    
+
     addHomeButton();
     removeHomeFeatures();
 
@@ -55,45 +55,57 @@ const read = async () => {
     document.getElementById("blog-body").innerHTML = blog.body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blog.id;
-}
+};
 
-const update = async() => {
-    let blog = await readModule.readSpecificFunc();
-    
+const update = async () => {
+    let id = document.getElementById("blog-id").innerHTML * 1;
+    let blog = await readModule.getBlog(id);
+
     addHomeButton();
     removeHomeFeatures();
     addTextAreasOverBodyAndTitle();
-    
+
     document.querySelector("#delete-form").style.display = "none";
     document.getElementById("submit-button").style.display = "block";
 
     //Change body to text area and insert value
-    document.getElementById("blog-titleTextArea").value = blog.title;
+    document.getElementById("blog-titleTextArea").innerHTML = blog.title;
     document.getElementById("blog-author").innerHTML = blog.author;
     document.getElementById("blog-date").innerHTML = new Date(blog.date).toLocaleDateString("en-US", dateOptions);
-    document.getElementById("blog-bodyTextArea").value = blog.body;
+    document.getElementById("blog-bodyTextArea").innerHTML = blog.body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
     document.getElementById("blog-id").innerHTML = blog.id;
-}
+};
 
 const create = () => {
 
-}
+    addHomeButton();
+    removeHomeFeatures();
+    addTextAreasOverBodyAndTitle();
+
+    let author = document.getElementById("blog-author");
+    let authorTextArea = document.createElement("textarea");
+    authorTextArea.rows = 20;
+    authorTextArea.cols = 45;
+    authorTextArea.id = "blog-authorTextArea";
+    document.querySelector(".blog-sub-header").replaceChild(authorTextArea, author);
+};
 
 //General func
 const home = () => {
     window.location.reload();
-}
+};
 
 const removeHomeFeatures = () => {
     // Remove unneeded elements
     document.getElementById("arrow-left").style.display = "none";
     document.getElementById("arrow-right").style.display = "none";
     document.getElementById("currentIndex").style.display = "none";
-}
+    document.getElementById("read-box").style.display = "none";
+};
 
 const addHomeButton = () => {
-    //Add script(s) to header
+    // Add script(s) to header
     let head = document.querySelector("head");
     let nodeHeadEventListener = document.createElement("script");
     nodeHeadEventListener.src = "./scripts/home.js";
@@ -106,7 +118,7 @@ const addHomeButton = () => {
     let textNode = document.createTextNode("Home");
     nodeHomeButton.appendChild(textNode);
     document.querySelector(".header-nav").appendChild(nodeHomeButton);
-}
+};
 
 const addTextAreasOverBodyAndTitle = () => {
     let body = document.getElementById("blog-body");
@@ -122,6 +134,6 @@ const addTextAreasOverBodyAndTitle = () => {
     titleTextArea.cols = 45;
     titleTextArea.id = "blog-titleTextArea";
     document.querySelector(".blog-header").replaceChild(titleTextArea, title);
-}
+};
 
 export { previous as previousBlog, next as nextBlog, read as readBlog, home as home, update as update, create as create };

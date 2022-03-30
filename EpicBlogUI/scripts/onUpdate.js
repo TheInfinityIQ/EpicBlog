@@ -1,4 +1,5 @@
 import * as stateModule from "./state.js";
+import updateRequest from "../CRUD/update.js";
 
 /* 
     Goals
@@ -6,7 +7,7 @@ import * as stateModule from "./state.js";
     2. After state has been updated, make use of put call and provide it with requestBody (blog)
 */
 
-const onUpdate = () => {
+const onUpdate = async () => {
     let idToCompare = document.getElementById("blog-id").innerHTML * 1;
     console.log(idToCompare);
     
@@ -19,11 +20,12 @@ const onUpdate = () => {
     };
 
     console.log(blog);
-
+    
     let indexOfBlogToUpdate = stateModule.blogs.findIndex((blog) => blog.id === idToCompare);
     stateModule.blogs[indexOfBlogToUpdate] = blog;
 
     console.log(stateModule.blogs);
+    await updateRequest(blog);
 }
 
 export { onUpdate as onUpdate };
