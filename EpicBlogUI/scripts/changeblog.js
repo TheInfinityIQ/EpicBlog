@@ -64,8 +64,7 @@ const update = async () => {
     removeHomeFeatures();
     addTextAreasOverBodyAndTitle();
 
-    document.querySelector("#delete-form").style.display = "none";
-    document.getElementById("submit-button").style.display = "block";
+    document.getElementById("submit-button-update").style.display = "block";
 
     //Change body to text area and insert value
     document.getElementById("blog-titleTextArea").innerHTML = blog.title;
@@ -77,16 +76,19 @@ const update = async () => {
 };
 
 const create = () => {
-    // addHomeButton();
-    // removeHomeFeatures();
-    // addTextAreasOverBodyAndTitle();
+    addHomeButton();
+    removeHomeFeatures();
+    addTextAreasOverBodyAndTitle();
 
-    // let author = document.getElementById("blog-author");
-    // let authorTextArea = document.createElement("textarea");
-    // authorTextArea.rows = 20;
-    // authorTextArea.cols = 45;
-    // authorTextArea.id = "blog-authorTextArea";
-    // document.querySelector(".blog-sub-header").replaceChild(authorTextArea, author);
+    document.getElementById("submit-button-create").style.display = "block";
+
+    let author = document.getElementById("blog-author");
+    let authorTextArea = document.createElement("textarea");
+    authorTextArea.rows = 1;
+    authorTextArea.cols = 5;
+    authorTextArea.value = "*NAME HERE*"
+    authorTextArea.id = "blog-authorTextArea";
+    document.querySelector(".blog-sub-header").replaceChild(authorTextArea, author);
 };
 
 //General func
@@ -100,6 +102,7 @@ const removeHomeFeatures = () => {
     document.getElementById("arrow-right").style.display = "none";
     document.getElementById("currentIndex").style.display = "none";
     document.getElementById("read-box").style.display = "none";
+    document.querySelector("#delete-form").style.display = "none";
 };
 
 const addHomeButton = () => {

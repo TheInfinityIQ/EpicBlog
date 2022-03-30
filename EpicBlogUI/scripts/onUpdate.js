@@ -1,12 +1,6 @@
 import * as stateModule from "./state.js";
 import updateRequest from "../CRUD/update.js";
 
-/* 
-    Goals
-    1. After submit was pressed, update state db with new blog
-    2. After state has been updated, make use of put call and provide it with requestBody (blog)
-*/
-
 const onUpdate = async () => {
     let idToCompare = document.getElementById("blog-id").innerHTML * 1;
     console.log(idToCompare);
@@ -28,4 +22,4 @@ const onUpdate = async () => {
     await updateRequest(blog);
 }
 
-export { onUpdate as onUpdate };
+export default onUpdate;

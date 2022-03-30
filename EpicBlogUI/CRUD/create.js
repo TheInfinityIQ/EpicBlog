@@ -1,9 +1,14 @@
 let url = "https://localhost:7061/blog";
 
-const createRequest = () => {
-    fetch(url, {
-        method: "POST",
-    })
+const createRequest = async (blog) => {
+    
+    let options = {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(blog),
+    };
+
+    return await fetch(url, { method: "POST", options })
         .then(
             (response) => {
                 if (response.ok) {
@@ -15,8 +20,9 @@ const createRequest = () => {
                 console.log(networkError.message);
             }
         )
-        .then((jsonResponse) => {
-            console.log(jsonResponse);
+        .catch((error) => {
+            console.log(console.log(error.message));
+            window.location.reload();
         });
 };
 

@@ -62,7 +62,8 @@ app.MapGet("/blog/size", ([FromServices] DataRepository db) =>
 app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) =>
 {
     db.Blogs?.Add(blog);
-    return Results.Ok();
+    int? idOfNewBlog = db.Blogs?.IndexOf(blog);
+    return Results.Ok(idOfNewBlog);
 });
 
 app.MapDelete("/blog/{title}", ([FromServices] DataRepository db, string title) =>
