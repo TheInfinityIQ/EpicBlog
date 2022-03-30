@@ -1,5 +1,4 @@
 import * as stateModule from "./state.js";
-import * as blogsModule from "./state.js";
 import * as readModule from "../CRUD/read.js";
 
 let dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -9,34 +8,34 @@ const previous = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
 
     if (currentIndex === 0) {
-        currentIndex = blogsModule.blogs.length - 1;
+        currentIndex = stateModule.blogs.length - 1;
     } else {
         currentIndex--;
     }
 
-    document.getElementById("blog-title").innerHTML = blogsModule.blogs[currentIndex].title;
-    document.getElementById("blog-author").innerHTML = blogsModule.blogs[currentIndex].author;
-    document.getElementById("blog-date").innerHTML = new Date(blogsModule.blogs[currentIndex].date).toLocaleDateString("en-US", dateOptions);
-    document.getElementById("blog-body").innerHTML = blogsModule.blogs[currentIndex].body;
+    document.getElementById("blog-title").innerHTML = stateModule.blogs[currentIndex].title;
+    document.getElementById("blog-author").innerHTML = stateModule.blogs[currentIndex].author;
+    document.getElementById("blog-date").innerHTML = new Date(stateModule.blogs[currentIndex].date).toLocaleDateString("en-US", dateOptions);
+    document.getElementById("blog-body").innerHTML = stateModule.blogs[currentIndex].body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
-    document.getElementById("blog-id").innerHTML = blogsModule.blogs[currentIndex].id;
+    document.getElementById("blog-id").innerHTML = stateModule.blogs[currentIndex].id;
 };
 
 const next = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
 
-    if (currentIndex === blogsModule.blogs.length - 1) {
+    if (currentIndex === stateModule.blogs.length - 1) {
         currentIndex = 0;
     } else {
         currentIndex++;
     }
 
-    document.getElementById("blog-title").innerHTML = blogsModule.blogs[currentIndex].title;
-    document.getElementById("blog-author").innerHTML = blogsModule.blogs[currentIndex].author;
-    document.getElementById("blog-date").innerHTML = new Date(blogsModule.blogs[currentIndex].date).toLocaleDateString("en-US", dateOptions);
-    document.getElementById("blog-body").innerHTML = blogsModule.blogs[currentIndex].body;
+    document.getElementById("blog-title").innerHTML = stateModule.blogs[currentIndex].title;
+    document.getElementById("blog-author").innerHTML = stateModule.blogs[currentIndex].author;
+    document.getElementById("blog-date").innerHTML = new Date(stateModule.blogs[currentIndex].date).toLocaleDateString("en-US", dateOptions);
+    document.getElementById("blog-body").innerHTML = stateModule.blogs[currentIndex].body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
-    document.getElementById("blog-id").innerHTML = blogsModule.blogs[currentIndex].id;
+    document.getElementById("blog-id").innerHTML = stateModule.blogs[currentIndex].id;
 };
 
 // page specific fun
@@ -78,17 +77,16 @@ const update = async () => {
 };
 
 const create = () => {
+    // addHomeButton();
+    // removeHomeFeatures();
+    // addTextAreasOverBodyAndTitle();
 
-    addHomeButton();
-    removeHomeFeatures();
-    addTextAreasOverBodyAndTitle();
-
-    let author = document.getElementById("blog-author");
-    let authorTextArea = document.createElement("textarea");
-    authorTextArea.rows = 20;
-    authorTextArea.cols = 45;
-    authorTextArea.id = "blog-authorTextArea";
-    document.querySelector(".blog-sub-header").replaceChild(authorTextArea, author);
+    // let author = document.getElementById("blog-author");
+    // let authorTextArea = document.createElement("textarea");
+    // authorTextArea.rows = 20;
+    // authorTextArea.cols = 45;
+    // authorTextArea.id = "blog-authorTextArea";
+    // document.querySelector(".blog-sub-header").replaceChild(authorTextArea, author);
 };
 
 //General func
