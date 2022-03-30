@@ -1,7 +1,5 @@
 let url = "https://localhost:7061/blog";
 
-let storedBlog;
-
 const blogs = await fetch(url, {
     method: "GET",
 })
@@ -18,11 +16,18 @@ const blogs = await fetch(url, {
     )
     .catch((error) => {
         console.log(error);
-});
+    });
 
-// let dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-// blogs.forEach(blog => {
-//     blog.date = new Date(blog.date).toLocaleDateString("en-US", dateOptions);
-// });
+const getBlogById = (blogId) => {
+    let blogWithMatchingId;
 
-export {blogs as blogs, storedBlog as blog} ;
+    blogs.array.forEach((element) => {
+        if (element.title === blogId) {
+            blogWithMatchingId = element;
+        }
+    });
+
+    return blogWithMatchingId;
+};
+
+export { blogs as blogs, getBlogById as getMatchingBlog };

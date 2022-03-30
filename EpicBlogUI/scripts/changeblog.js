@@ -1,10 +1,10 @@
+import * as stateModule from "./state.js"
 import * as blogsModule from "./state.js";
 import * as readModule from "../CRUD/read.js";
 
 let dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 
-
-// Home Featyres
+// Home Features
 const previous = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
 
@@ -64,20 +64,11 @@ const update = async() => {
     removeHomeFeatures();
     addTextAreasOverBodyAndTitle();
     
-    let deleteForm = document.querySelector("#delete-form");
-    let submitForm = document.createElement("form");
-    submitForm.class = "inline-flex";
-    submitForm.id = "submit-form";
-
-    let submitButton = document.createElement("button");
-    submitButton.type = "button";
-    submitButton.id = "submit-button";
-    submitButton.innerHTML = "Submit";
-
-    deleteForm.replaceWith(submitButton);
+    document.querySelector("#delete-form").style.display = "none";
+    document.getElementById("submit-button").style.display = "block";
 
     //Change body to text area and insert value
-    document.getElementById("blog-titleTextArea").innerHTML = blog.title;
+    document.getElementById("blog-titleTextArea").value = blog.title;
     document.getElementById("blog-author").innerHTML = blog.author;
     document.getElementById("blog-date").innerHTML = new Date(blog.date).toLocaleDateString("en-US", dateOptions);
     document.getElementById("blog-bodyTextArea").value = blog.body;
@@ -98,7 +89,7 @@ const removeHomeFeatures = () => {
     // Remove unneeded elements
     document.getElementById("arrow-left").style.display = "none";
     document.getElementById("arrow-right").style.display = "none";
-    document.getElementById("index").style.display = "none";
+    document.getElementById("currentIndex").style.display = "none";
 }
 
 const addHomeButton = () => {
