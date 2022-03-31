@@ -3,9 +3,7 @@ import blogs from "../scripts/state.js";
 let url = "https://localhost:7061/blog";
 
 const createRequest = async (blog) => {
-    console.log("Inside create requests");
-    console.log(blog);
-
+    
     let options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -30,7 +28,6 @@ const createRequest = async (blog) => {
         });
 
         blogs.push(blogAdded);
-        console.log(blogs);
 };
 
 export default createRequest;

@@ -1,4 +1,3 @@
-import * as stateModule from "./state.js";
 import createRequest from "../CRUD/create.js";
 
 const onCreate = async () => {
@@ -13,9 +12,6 @@ const onCreate = async () => {
     };
 
     await createRequest(blog);
-
-    //Download new state
-    
 }
 
 export default onCreate;
