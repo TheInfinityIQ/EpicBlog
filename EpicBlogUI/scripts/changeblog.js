@@ -89,6 +89,10 @@ const create = () => {
     authorTextArea.value = "*NAME HERE*"
     authorTextArea.id = "blog-authorTextArea";
     document.querySelector(".blog-sub-header").replaceChild(authorTextArea, author);
+
+    document.getElementById("blog-date").style.display = 'none';
+    document.getElementById("index-box").style.display = 'none';
+    document.getElementById("blog-box").style.display = 'none';
 };
 
 //General func
@@ -119,6 +123,9 @@ const addHomeButton = () => {
     let textNode = document.createTextNode("Home");
     nodeHomeButton.appendChild(textNode);
     document.querySelector(".header-nav").appendChild(nodeHomeButton);
+
+    document.getElementById("nav-update").style.display = 'none';
+    document.getElementById("nav-create").style.display = 'none';
 };
 
 const addTextAreasOverBodyAndTitle = () => {

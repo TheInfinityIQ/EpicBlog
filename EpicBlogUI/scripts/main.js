@@ -12,8 +12,8 @@ let next = document.getElementById("arrow-right");
 next.addEventListener("click", changeModule.nextBlog);
 
 document.querySelector("#delete-form").style.display = "block";
-document.getElementById("submit-button-update").style.display = 'none';
-document.getElementById("submit-button-create").style.display = 'none';
+document.getElementById("submit-button-update").style.display = "none";
+document.getElementById("submit-button-create").style.display = "none";
 document.getElementById("read-box").style.display = "block";
 
 // Dev tools

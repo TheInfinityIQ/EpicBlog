@@ -1,7 +1,8 @@
+import blogs from "../scripts/state.js";
+
 let url = "https://localhost:7061/blog";
 
 const createRequest = async (blog) => {
-    
     console.log("Inside create requests");
     console.log(blog);
 
@@ -11,11 +12,11 @@ const createRequest = async (blog) => {
         body: JSON.stringify(blog),
     };
 
-    await fetch(url, options)
+    let blogAdded = await fetch(url, options)
         .then(
             (response) => {
                 if (response.ok) {
-                    return;
+                    return response.json();
                 }
                 throw new Error("Request failed!");
             },
@@ -27,6 +28,9 @@ const createRequest = async (blog) => {
             console.log(error.message);
             window.location.reload();
         });
+
+        blogs.push(blogAdded);
+        console.log(blogs);
 };
 
 export default createRequest;

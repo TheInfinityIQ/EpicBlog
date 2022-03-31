@@ -63,9 +63,8 @@ app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog, IL
 {
     Blog toAdd = new Blog(blog.Title, blog.Author, blog.Body);
 
-
     db.Blogs?.Add(toAdd);
-    return Results.Ok();
+    return Results.Created($"https://localhost:7061/blog/{toAdd.Id}", toAdd);
 });
 
 app.MapDelete("/blog/{title}", ([FromServices] DataRepository db, string title) =>
