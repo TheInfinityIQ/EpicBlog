@@ -46,6 +46,7 @@ const read = async () => {
     removeHomeFeatures();
 
     document.getElementById("read-box").remove();
+    document.getElementById("index-box").style.display = 'none';
 
     //Update blog based on search
     document.getElementById("blog-title").innerHTML = blog.title;

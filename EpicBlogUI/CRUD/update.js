@@ -21,6 +21,8 @@ const updateRequest = async (updatedBlog) => {
         console.log(console.log(error.message));
         window.location.reload();
     })
+
+    window.location.reload();
 };
 
 export default updateRequest;
