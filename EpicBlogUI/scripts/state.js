@@ -18,16 +18,4 @@ const blogs = await fetch(url, {
         console.log(error);
     });
 
-const getBlogById = (blogId) => {
-    let blogWithMatchingId;
-
-    blogs.array.forEach((element) => {
-        if (element.title === blogId) {
-            blogWithMatchingId = element;
-        }
-    });
-
-    return blogWithMatchingId;
-};
-
-export { blogs as blogs, getBlogById as getMatchingBlog };
+export default blogs;

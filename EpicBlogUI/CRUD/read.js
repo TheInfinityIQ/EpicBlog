@@ -1,5 +1,6 @@
 let url = "https://localhost:7061/blog";
 
+// Used from read input bar under blog tools
 const getBlogFromAPI = async () => {
     let id = document.getElementById("read").value;
 
@@ -23,6 +24,7 @@ const getBlogFromAPI = async () => {
         });
 };
 
+// Used by front end to get update in change blog
 const getBlogById = async (id) => {
     
     return await fetch(url + "/" + id, {

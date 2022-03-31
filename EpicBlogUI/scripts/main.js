@@ -1,4 +1,4 @@
-import onCreate from "../CRUD/create.js";
+import onCreate from "./onCreate.js";
 import onUpdate from "./onUpdate.js";
 import deleteFunc from "../CRUD/delete.js";
 import * as readModule from "../CRUD/read.js";
@@ -32,8 +32,6 @@ submitUpdateButton.addEventListener("click", onUpdate);
 
 let submitCreateButton = document.getElementById("submit-button-create");
 submitCreateButton.addEventListener("click", onCreate);
-
-
 
 // Nav
 let updateButton = document.getElementById("nav-update");

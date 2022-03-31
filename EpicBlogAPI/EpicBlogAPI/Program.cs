@@ -59,11 +59,13 @@ app.MapGet("/blog/size", ([FromServices] DataRepository db) =>
     return db.Blogs.Count();
 });
 
-app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) =>
+app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog, ILogger<Program> logger) =>
 {
-    db.Blogs?.Add(blog);
-    int? idOfNewBlog = db.Blogs?.IndexOf(blog);
-    return Results.Ok(idOfNewBlog);
+    Blog toAdd = new Blog(blog.Title, blog.Author, blog.Body);
+
+
+    db.Blogs?.Add(toAdd);
+    return Results.Ok();
 });
 
 app.MapDelete("/blog/{title}", ([FromServices] DataRepository db, string title) =>

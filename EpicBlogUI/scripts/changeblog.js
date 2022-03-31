@@ -1,4 +1,4 @@
-import * as stateModule from "./state.js";
+import blogs from "./state.js";
 import * as readModule from "../CRUD/read.js";
 
 let dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -8,34 +8,34 @@ const previous = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
 
     if (currentIndex === 0) {
-        currentIndex = stateModule.blogs.length - 1;
+        currentIndex = blogs.length - 1;
     } else {
         currentIndex--;
     }
 
-    document.getElementById("blog-title").innerHTML = stateModule.blogs[currentIndex].title;
-    document.getElementById("blog-author").innerHTML = stateModule.blogs[currentIndex].author;
-    document.getElementById("blog-date").innerHTML = new Date(stateModule.blogs[currentIndex].date).toLocaleDateString("en-US", dateOptions);
-    document.getElementById("blog-body").innerHTML = stateModule.blogs[currentIndex].body;
+    document.getElementById("blog-title").innerHTML = blogs[currentIndex].title;
+    document.getElementById("blog-author").innerHTML = blogs[currentIndex].author;
+    document.getElementById("blog-date").innerHTML = new Date(blogs[currentIndex].date).toLocaleDateString("en-US", dateOptions);
+    document.getElementById("blog-body").innerHTML = blogs[currentIndex].body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
-    document.getElementById("blog-id").innerHTML = stateModule.blogs[currentIndex].id;
+    document.getElementById("blog-id").innerHTML = blogs[currentIndex].id;
 };
 
 const next = () => {
     let currentIndex = document.getElementById("currentIndex").innerHTML * 1; // Converts the string to a number
 
-    if (currentIndex === stateModule.blogs.length - 1) {
+    if (currentIndex === blogs.length - 1) {
         currentIndex = 0;
     } else {
         currentIndex++;
     }
 
-    document.getElementById("blog-title").innerHTML = stateModule.blogs[currentIndex].title;
-    document.getElementById("blog-author").innerHTML = stateModule.blogs[currentIndex].author;
-    document.getElementById("blog-date").innerHTML = new Date(stateModule.blogs[currentIndex].date).toLocaleDateString("en-US", dateOptions);
-    document.getElementById("blog-body").innerHTML = stateModule.blogs[currentIndex].body;
+    document.getElementById("blog-title").innerHTML = blogs[currentIndex].title;
+    document.getElementById("blog-author").innerHTML = blogs[currentIndex].author;
+    document.getElementById("blog-date").innerHTML = new Date(blogs[currentIndex].date).toLocaleDateString("en-US", dateOptions);
+    document.getElementById("blog-body").innerHTML = blogs[currentIndex].body;
     document.getElementById("currentIndex").innerHTML = currentIndex;
-    document.getElementById("blog-id").innerHTML = stateModule.blogs[currentIndex].id;
+    document.getElementById("blog-id").innerHTML = blogs[currentIndex].id;
 };
 
 // page specific fun
